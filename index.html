@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Advanced Web Design - Ivan Luis P. Marquilencia</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+            body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background: url(images/background.jpg) no-repeat center center fixed;
+            background-color: white;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            }
+            main {
+                flex: 1;
+                margin-top: 100px;
+                margin-bottom: 60px;
+                padding: 20px;
+            }
+
+            .navbar {
+            font-size: 1.5rem;
+            }
+            .navbar-nav {
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+            .navbar-brand #logo{
+                border-radius: 35%;
+            }
+            .navbar-toggler {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1050;
+            }
+            .nav-link {
+                color: white !important;
+                transition: 0.3s;
+            }
+            .nav-link:hover {
+                color: aqua !important;
+                transform: scale(1.1);
+                border-bottom: 5px solid white;
+            }
+            .active {
+                color: aqua !important;
+                transform: scale(1.1);
+                border-bottom: 5px solid white;
+            }
+
+            .card {
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.5s ease, box-shadow 0.5s ease;
+                cursor: pointer;
+            }
+            .card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            .card:hover {
+                transform: scale(1.1);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            }
+            .card-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: white;
+                opacity: 0;
+                transition: background 0.5s ease, opacity 0.5s ease;
+                text-align: center;
+                padding: 10px;
+            }
+            .card:hover .card-overlay {
+                background: rgba(0, 0, 0, 0.7);
+                opacity: 1;
+            }
+            .card-title, .card-text {
+                margin: 0;
+                transform: translateY(20px);
+                opacity: 0;
+                transition: transform 0.5s ease, opacity 0.5s ease;
+            }
+            .card:hover .card-title,
+            .card:hover .card-text {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .footer {
+            margin-top: auto;
+            background-color: #474747;
+            padding: 20px 0;
+            text-align: center;
+            }
+            .footer p {
+                margin-bottom: 5px;
+            }
+            .footer .navbar-light {
+            color:#a7a7a7; 
+        }
+        </style>
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <a class="navbar-brand ps-3" href="index.html">
+                <img id="logo" alt="Logo" src="images/Logo.webp"" width="20%" height="20%"/></a>
+                <button class="navbar-toggler ms-auto justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link me-3 active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-3" href="">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-3" href="">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="mt-5 pt-5">
+            <div class="row g-4">
+
+                <!--Card 1-->
+                <div class="col md-4">
+                    <div class="card h-100">
+                        <img src="images/item1.webp" alt="Item 1">
+                        <div class="card-overlay">
+                            <h5 class="card-title">RX-78-2 Gundam</h5>
+                            <p class="card-text">The first main Gundam suit</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Card 2-->
+                <div class="col md-4">
+                    <div class="card h-100">
+                        <img src="images/item2.webp" alt="Item 2">
+                        <div class="card-overlay">
+                            <h5 class="card-title">RX-78(G)E Gundam EX</h5>
+                            <p class="card-text">A prototype Gundam suit</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Card 3-->
+                <div class="col md-4">
+                    <div class="card h-100">
+                        <img src="images/item3.jpg" alt="Item 3">
+                        <div class="card-overlay">
+                            <h5 class="card-title">RX-0 Unicorn Gundam 01</h5>
+                            <p class="card-text">A Gundam suit with 2 modes</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Card 4-->
+                <div class="col md-4">
+                    <div class="card h-100">
+                        <img src="images/item4.webp" alt="Item 4">
+                        <div class="card-overlay">
+                            <h5 class="card-title">RX-93 ν Gundam</h5>
+                            <p class="card-text">The last Gundam suit piloted by Amuro Ray</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+    <footer class="footer text-center" id="contact">
+        <div class="container">
+            <p class="navbar-light">&copy; 2025 Ivan Luis P. Marquilencia. All Rights Reserved.</p>
+            <p class="navbar-light">For Educational Purposes Only.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
