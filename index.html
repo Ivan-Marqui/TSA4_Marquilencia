@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gunpla - A Hobby For Everyone</title>
+        <link rel="icon" href="images/logo.png" type="image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                position: relative;
+            }
+            body {
+            font-family:'Orbitron', sans-serif;
+            background: url(images/background.jpg) no-repeat center center fixed;
+            background-size: cover;
+            background-color: transparent;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            }
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: -1;
+            }
+
+            main {
+                flex: 1;
+                margin-top: 80px;
+                padding: 20px;
+            }
+
+            .navbar {
+            font-size: 1.75rem;
+            }
+            .navbar-nav {
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+            .navbar-toggler {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1050;
+            }
+            .nav-link {
+                color: white !important;
+                transition: 0.3s;
+            }
+            .nav-link:hover {
+                color: aqua !important;
+                transform: scale(1.1);
+                border-bottom: 5px solid white;
+            }
+            .active {
+                color: aqua !important;
+                transform: scale(1.1);
+                border-bottom: 5px solid white;
+            }
+
+            .card {
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.5s ease, box-shadow 0.5s ease;
+                cursor: pointer;
+                height: 100%;
+            }
+            .card-body {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                padding: 20px;
+                transform: translateY(100%);
+                transition: transform 0.5s ease;
+            }
+            .card:hover .card-body {
+                transform: translateY(0);
+            }
+            .card img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            .card:hover {
+                transform: scale(1.02);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            }
+            .card-body h5,
+            .card-body button {
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+            .card:hover .card-body h5,
+            .card:hover .card-body button {
+                opacity: 1;
+            }
+
+            .modal-dialog {
+                max-width: 600px;
+                width: 100%;
+            }
+            .modal-content {
+                background-color: #474747;
+                color: aqua;
+            }
+            .modal-body {
+                text-align: justify;
+            }
+            .modal-body p {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+            .modal-title {
+                text-align: center;
+                font-size: 2rem;
+            }
+            .modal-body img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .btn-custom {
+                background-color: #5b5b5b;
+                border-color: #474747;
+                color: white;
+            }
+            .btn-custom:hover {
+                background-color: #474747;
+                border-color: #343434;
+                color: aqua;
+            }
+
+            .footer {
+            margin-top: auto;
+            background-color: #474747;
+            padding: 20px 0;
+            text-align: center;
+            }
+            .footer p {
+                margin-bottom: 5px;
+            }
+            .footer .navbar-light {
+            color:#a7a7a7; 
+            }
+
+            @media (max-width: 991px) {
+                .navbar-collapse {
+                    text-align: center;
+                }
+                .card {
+                    margin-bottom: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <a class="navbar-brand ps-3" href="index.html">
+                <img id="logo" alt="Logo" src="images/logo.png" width="25%" height="25%"/></a>
+                <button class="navbar-toggler ms-auto justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link me-3 active" href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="mt-5 pt-5">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-4 g-4">
+
+                <!--Card 1-->
+                <div class="col">
+                    <div class="card">
+                        <img src="images/item1.webp" class="card-img-top" alt="Item1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">High Grade</h5>
+                            <button class="btn btn-custom mt-2" data-bs-toggle="modal" data-bs-target="#modal1">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <!--Card 2-->
+                <div class="col">
+                    <div class="card">
+                        <img src="images/item2.webp" class="card-img-top" alt="Item2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Real Grade</h5>
+                            <button class="btn btn-custom mt-2" data-bs-toggle="modal" data-bs-target="#modal2">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <!--Card 3-->
+                <div class="col">
+                    <div class="card">
+                        <img src="images/item3.webp" class="card-img-top" alt="Item3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Master Grade</h5>
+                            <button class="btn btn-custom mt-2" data-bs-toggle="modal" data-bs-target="#modal3">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <!--Card 4-->
+                <div class="col">
+                    <div class="card">
+                        <img src="images/item4.webp" class="card-img-top" alt="Item4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Perfect Grade</h5>
+                            <button class="btn btn-custom mt-2" data-bs-toggle="modal" data-bs-target="#modal4">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    <!--Modals-->
+    <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">High Grade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/item1.webp" class="img-fluid mb-3" alt="item1">
+                    <p>High Grade (HG) is a line of Gunpla kits by Bandai. These kits feature better range of motion and greater poseability than most No-Grade kits. 
+                        It is important to note that 1/100 scale models for Mobile Suit Gundam SEED, Mobile Suit Gundam SEED Destiny, Mobile Suit Gundam 00, and Mobile 
+                        Suit Gundam IRON-BLOODED ORPHANS do not have HG listed anywhere on the box or manual, but they are considered comparable to High Grade in terms 
+                        of quality.</p>
+
+                    <p>The HG moniker has also been used in other anime and sci-fi kit lines such as Neon Genesis Evangelion, Aura Battler Dunbine, Pacific Rim: 
+                        Uprising, Full Metal Panic!, Dynamic Characters, Nekketsu Saikyō Go-Saurer, Sakura Wars, Mashin Hero Wataru, Amaim Warrior at the Borderline, 
+                        and Macross.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Real Grade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/item2.webp" class="img-fluid mb-3" alt="item2">
+                    <p>Real Grade (RG) is a line of Gunpla kits that was introduced by Bandai in 2010 as part of the Gundam 30th 
+                        Anniversary commemoration project. These consist of Mobile Suits from both the Universal Century and the Alternate Centuries. The RG 
+                        line combines the best aspects of the other three Gunpla lines: The small size and affordable prices of the High Grade, the advanced 
+                        inner frame technology of the Master Grade and the massive parts count and details of the Perfect Grade. The tagline for the RG line is 
+                        "Excitement Embodied". Also, the RG line reflects what a mobile suit would look like if it were built in the present day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Master Grade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/item3.webp" class="img-fluid mb-3" alt="item3">
+                    <p>Master Grade (MG) is a line of 1/100 scale Gunpla kits of the Mobile Suits in the Gundam meta series. The series 
+                        was first produced in 1995 as part of the Gundam 15th Anniversary project.</p>
+
+                    <p>Master Grade kits differ from other 1/100 scale Gunpla, with their level of detail, articulation, and proportions being second only to the 
+                        Perfect Grade line. A majority of MG kits feature a skeletal inner frame with working hydraulics, some also accommodate Gunpla LED Units for 
+                        light-up gimmicks. To give viewers a perspective of the Mobile Suit's size, many MG kits come with 1/100 scale figurines of the pilots or key 
+                        characters of their respective series. In addition, some kits include 1/20 scale character figures.</p>
+                        
+                    <p>Beginning in 2002, veteran mecha designer Hajime Katoki began redesigning various Mobile Suits and releasing them in the Master Grade 
+                        line under the label of "Ver.Ka" (Version Katoki). Some of the Ver.Ka kits were produced as a result of annual fan votes. In addition, 
+                        many Mobile Suits from the Universal Century and Cosmic Era timelines have received redesigns under the monikers "Ver.1.5", "Ver.2.0", 
+                        "Ver.3.0", and "Ver.RM".</p>
+                        
+                    <p>In 2020, Bandai created a new sub-line Master Grade Extreme (MGEX),[2] which features "Extreme Points", additional gimmicks that exaggerate 
+                        key points of the featured Gundam using custom lighting units, a completely gold washed inner frame or other methods to strongly highlight the 
+                        uniqueness of the Gundam. The sub-line also has its own Ver.Ka kits, with the first in the line being a Ver Ka.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Perfect Grade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/item4.webp" class="img-fluid mb-3" alt="item4">
+                    <p>Perfect Grade (PG) is a line of 1/60 scale Gunpla kits of the Mobile Suits in the Gundam meta series. 
+                        The PG line originated with the release of the Perfect Grade Evangelion EVA-01 in 1997. The line was then exclusive to the Gundam franchise 
+                        from 1998 to 2017, until Bandai announced the Perfect Grade 1/72 scale Millennium Falcon for the Star Wars franchise. The PG line has 
+                        significant external and internal details plus light up gimmicks with LEDs. The PGs are some of the most expensive Gunpla produced and 
+                        have often been used to develop Master Grade and Real Grade technology.</p>
+
+                    <p>In 2020, Bandai introduced a new sub-line Perfect Grade Unleashed to commemorate the 40th anniversary of Gunpla, featuring kits with increased 
+                        complexity and diecast metal parts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
